@@ -1,6 +1,6 @@
-# htmlLS
+# Mateo Carrasco html
 
-**htmlLS** This project consists of a Docker container that serves a web page through Nginx. This README describes the necessary steps to download and run the image from Docker Hub.
+**html** This project consists of a Docker container that serves a web page through Nginx. This README describes the necessary steps to download and run the image from Docker Hub.
 
 ## Project Structure
 
