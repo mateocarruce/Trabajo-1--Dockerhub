@@ -1,36 +1,86 @@
-# Task 1 - DockerHub - Mateo Carrasco
+# htmlLS
 
-This project consists of a Docker container that exposes a web page through Nginx. This README describes the necessary steps to download and run the image from Docker Hub.
+**htmlLS** This project consists of a Docker container that serves a web page through Nginx. This README describes the necessary steps to download and run the image from Docker Hub.
 
-## Requirements
+## Project Structure
 
-- Docker installed on your system. If you don't have Docker, you can install it by following the instructions in the official documentation: [Install Docker](https://docs.docker.com/get-docker/).
+The basic structure of the project is as follows:
 
-## Steps to run the container
+```
+htmlLS/
+│
+├── .vscode/         # Configuration files for Visual Studio Code
+├── Dockerfile       # Dockerfile to build the container image
+├── index.html       # HTML file that contains the main content
+└── README.md        # Project documentation
+```
 
-### 1. Clone this repository (if necessary)
-If you want to get a local copy of the project, you can clone this repository to your local machine:
+### Requirements
+
+To run this project locally or inside a Docker container, you need the following:
+
+1. **Docker** (if you want to run in a container)
+2. **Git** (to clone the repository)
+
+### Local Installation and Execution
+
+#### 1. Clone the Repository
+
+Clone it using Git:
 
 ```bash
 git clone https://github.com/mateocarruce/Trabajo-1--Dockerhub.git
 cd Trabajo-1--Dockerhub
+```
 
+#### 2. Build the Docker Image
 
+To build the Docker image, run the following command:
 
-### 2. Log in to Docker Hub
-docker login
+```bash
+docker build -t mateocarr/tarea1mateocarrasco .
+```
 
-### 3. Pull the image from Docker Hub
-docker pull mateocarr/tarea1mateocarrasco
+#### 3. Run the Application
 
+Once the image is built, run the container:
 
-### 4. Run the container
-docker run -p 80:80 mateocarr/tarea1mateocarrasco
+```bash
+docker run -d -p 8081:80 mateocarr/tarea1mateocarrasco
+```
 
-### 5. Verify the application
-Once the container is running, open your browser and navigate to http://localhost.
+The application will be available at `http://localhost:8081/` 
 
-### 5. Verify the application
+**Note:** If you encounter an error with port `8080` being already in use, you can either:
+- Terminate the process occupying the port (use `taskkill /PID <PID> /F` for Windows to stop the process), or
+- Run the container on a different port, such as `8081`, by using the command `docker run -d -p 8081:80 mateocarr/tarea1mateocarrasco`.
 
-This is the full `README.md` in English with all the instructions included. You can now use it to guide others on how to download and run the Docker image.
+### Docker Hub Launch Manual
 
+#### 1. Download the Image
+
+To download the image from Docker Hub, run:
+
+```bash
+docker pull mateocarr/tarea1mateocarrasco:latest
+```
+
+#### 2. Run the Container
+
+Once the image is downloaded, run the container:
+
+```bash
+docker run -d -p 8081:80 mateocarr/tarea1mateocarrasco:latest
+```
+
+This will start the container and the application will be available at `http://localhost:8081/`.
+
+## Notes
+
+- Make sure Docker is running.
+- If you have problems accessing `http://localhost:8081`, verify that the port is not in use or check your firewall.
+
+## Credits
+
+- Project developed by Mateo Carrasco. Feel free to contribute or make suggestions for future improvements.
+```
